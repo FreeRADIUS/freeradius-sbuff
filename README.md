@@ -20,3 +20,19 @@ These operations are driven by demands for data.  When one of the `sbuff_out_*` 
 called, it will attempt to read however many bytes it needs to complete the operation from
 the sbuff that was passed into it.
 
+## Error indication
+
+sbuff printing and parsing functions always return a `sbuff_slen_t` (typedef of `ssize_t`).
+
+### Parsing
+
+- `>=0` the number of bytes consumed from the `sbuff_t`.
+- `<0` negative offset of where a parse error occurred.  Given the string `foo`, and a return
+  value of `-1`, a parse error would be indicated at offset `0` (`f`).
+
+### Printing
+
+- `>=0` the number of bytes written to the `sbuff_t`.
+- `<0` negative offset indicating how many additional bytes would be required in the sbuff
+  to write the complete string.  A return value of `-5` would mean `5` more bytes would be
+  reuiqred.
