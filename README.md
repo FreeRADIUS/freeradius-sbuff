@@ -1,5 +1,5 @@
-# freeradius-sbuff
-A separate repository for the sbuff string manipulation library
+# sbuff
+A separate repository for the FreeRADIUS sbuff string manipulation library.
 
 ## Introduction
 
